@@ -12,6 +12,7 @@ import com.goldze.mvvmhabit.entity.User;
 import com.goldze.mvvmhabit.ui.main.DemoActivity;
 import com.goldze.mvvmhabit.ui.network.NetWorkItemViewModel;
 import com.goldze.mvvmhabit.ui.network.NetWorkViewModel;
+import com.goldze.mvvmhabit.ui.register.RegisterActivity;
 import com.goldze.mvvmhabit.ui.tab_bar.activity.TabBarActivity;
 import com.goldze.mvvmhabit.ui.vp_frg.ViewPagerGroupFragment;
 
@@ -78,10 +79,10 @@ public class LoginViewModel extends BaseViewModel<DemoRepository> {
         }
     });
 
-    public BindingCommand registerOnClickCommand=new BindingCommand(new BindingAction() {
+    public BindingCommand registerOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-//            startActivity();
+            startActivity(RegisterActivity.class);
         }
     });
     //用户名输入框焦点改变的回调事件

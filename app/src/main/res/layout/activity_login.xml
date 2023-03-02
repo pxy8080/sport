@@ -128,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="8dp"
-                    android:text="忘记密码"
+                    android:text="注册"
                     binding:onClickCommand="@{viewModel.registerOnClickCommand}"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />

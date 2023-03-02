@@ -2,8 +2,8 @@ package com.goldze.mvvmhabit.app;
 
 import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.ui.login.LoginActivity;
-import com.squareup.leakcanary.BuildConfig;
-import com.squareup.leakcanary.LeakCanary;
+//import com.squareup.leakcanary.BuildConfig;
+//import com.squareup.leakcanary.LeakCanary;
 
 import me.goldze.mvvmhabit.base.BaseApplication;
 import me.goldze.mvvmhabit.crash.CaocConfig;
@@ -18,13 +18,13 @@ public class AppApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         //是否开启打印日志
-        KLog.init(BuildConfig.DEBUG);
+//        KLog.init(BuildConfig.DEBUG);
         //初始化全局异常崩溃
         initCrash();
         //内存泄漏检测
-        if (!LeakCanary.isInAnalyzerProcess(this)) {
-            LeakCanary.install(this);
-        }
+//        if (!LeakCanary.isInAnalyzerProcess(this)) {
+//            LeakCanary.install(this);
+//        }
     }
 
     private void initCrash() {
