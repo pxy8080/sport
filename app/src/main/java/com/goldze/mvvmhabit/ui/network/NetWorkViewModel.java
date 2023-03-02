@@ -1,6 +1,8 @@
 package com.goldze.mvvmhabit.ui.network;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
+import android.util.Log;
 
 import com.goldze.mvvmhabit.BR;
 import com.goldze.mvvmhabit.R;
@@ -10,6 +12,7 @@ import com.goldze.mvvmhabit.entity.DemoEntity;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
+
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
@@ -20,7 +23,9 @@ import me.goldze.mvvmhabit.binding.command.BindingCommand;
 import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
 import me.goldze.mvvmhabit.http.BaseResponse;
 import me.goldze.mvvmhabit.http.ResponseThrowable;
+import me.goldze.mvvmhabit.utils.MaterialDialogUtils;
 import me.goldze.mvvmhabit.utils.RxUtils;
+import me.goldze.mvvmhabit.utils.StringUtils;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
@@ -58,6 +63,7 @@ public class NetWorkViewModel extends BaseViewModel<DemoRepository> {
     });
     //上拉加载
     public BindingCommand onLoadMoreCommand = new BindingCommand(new BindingAction() {
+        @SuppressLint("CheckResult")
         @Override
         public void call() {
             if (observableList.size() > 50) {
@@ -103,6 +109,7 @@ public class NetWorkViewModel extends BaseViewModel<DemoRepository> {
                     @Override
                     public void accept(Disposable disposable) throws Exception {
                         showDialog("正在请求...");
+//                        MaterialDialogUtils.showBasicDialog(getApplication(), "正在请求").show();
                     }
                 })
                 .subscribe(new DisposableObserver<BaseResponse<DemoEntity>>() {
@@ -110,6 +117,7 @@ public class NetWorkViewModel extends BaseViewModel<DemoRepository> {
                     public void onNext(BaseResponse<DemoEntity> response) {
                         //清除列表
                         observableList.clear();
+                        Log.i("TAG", "onNext: 获取到的返回值"+response.toString());
                         //请求成功
                         if (response.getCode() == 1) {
                             for (DemoEntity.ItemsEntity entity : response.getResult().getItems()) {

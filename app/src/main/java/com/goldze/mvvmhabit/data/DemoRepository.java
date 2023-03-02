@@ -1,11 +1,16 @@
 package com.goldze.mvvmhabit.data;
 
+import android.util.Log;
+
 import com.goldze.mvvmhabit.data.source.HttpDataSource;
 import com.goldze.mvvmhabit.data.source.LocalDataSource;
 import com.goldze.mvvmhabit.entity.DemoEntity;
+import com.goldze.mvvmhabit.entity.Result;
+import com.goldze.mvvmhabit.entity.User;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+
 import io.reactivex.Observable;
 import me.goldze.mvvmhabit.base.BaseModel;
 import me.goldze.mvvmhabit.http.BaseResponse;
@@ -45,8 +50,13 @@ public class DemoRepository extends BaseModel implements HttpDataSource, LocalDa
 
 
     @Override
-    public Observable<Object> login() {
-        return mHttpDataSource.login();
+    public Observable<BaseResponse<String>> test() {
+        return mHttpDataSource.test();
+    }
+
+    @Override
+    public Observable<BaseResponse<User>> login(String name, String password) {
+        return mHttpDataSource.login(name, password);
     }
 
     @Override

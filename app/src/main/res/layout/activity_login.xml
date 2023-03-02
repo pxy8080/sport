@@ -129,6 +129,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="8dp"
                     android:text="忘记密码"
+                    binding:onClickCommand="@{viewModel.registerOnClickCommand}"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
             </RelativeLayout>
@@ -151,12 +152,12 @@
                     binding:onClickCommand="@{viewModel.loginOnClickCommand}" />
             </LinearLayout>
 
-            <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="模拟一个登陆操作,随便输入账号密码点击登录即可进入"
-                android:textColor="#EE1010" />
+            <!--            <TextView-->
+            <!--                android:gravity="center"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="模拟一个登陆操作,随便输入账号密码点击登录即可进入"-->
+            <!--                android:textColor="#EE1010" />-->
         </LinearLayout>
     </RelativeLayout>
 </layout>

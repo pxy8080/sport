@@ -12,7 +12,6 @@ public interface LocalDataSource {
     /**
      * 保存用户密码
      */
-
     void savePassword(String password);
 
     /**

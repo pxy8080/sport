@@ -25,6 +25,7 @@ public class ViewPagerGroupFragment extends BasePagerFragment {
         list.add(new TabBar2Fragment());
         list.add(new TabBar3Fragment());
         list.add(new TabBar4Fragment());
+
         return list;
     }
 

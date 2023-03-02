@@ -3,6 +3,8 @@ package com.goldze.mvvmhabit.data.source.http;
 import com.goldze.mvvmhabit.data.source.HttpDataSource;
 import com.goldze.mvvmhabit.data.source.http.service.DemoApiService;
 import com.goldze.mvvmhabit.entity.DemoEntity;
+import com.goldze.mvvmhabit.entity.Result;
+import com.goldze.mvvmhabit.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +41,16 @@ public class HttpDataSourceImpl implements HttpDataSource {
         this.apiService = apiService;
     }
 
+//    @Override
+//    public Observable<Object> login() {
+//        return Observable.just(new Object()).delay(3, TimeUnit.SECONDS); //延迟3秒
+//    }
     @Override
-    public Observable<Object> login() {
-        return Observable.just(new Object()).delay(3, TimeUnit.SECONDS); //延迟3秒
+    public Observable<BaseResponse<User>> login(String name, String password) {
+        return apiService.login(name, password);
+    }@Override
+    public Observable<BaseResponse<String>> test() {
+        return apiService.test();
     }
 
     @Override
