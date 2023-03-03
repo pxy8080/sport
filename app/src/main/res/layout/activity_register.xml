@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.goldze.mvvmhabit.ui.register.RegisterViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                onClickCommand="@{viewModel.navigationBackCommand}"
+                android:background="@color/colorPrimary"
+                android:navigationIcon="@drawable/icon_back">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="注册"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </Toolbar>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/user_edit"
+                        android:hint="请输入账号"
+                        android:paddingVertical="15dp"
+                        android:paddingStart="30dp"
+                        android:text="@={viewModel.userName}" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/user_edit"
+                        android:hint="请输入密码"
+                        android:paddingVertical="15dp"
+                        android:paddingStart="30dp"
+                        android:text="@={viewModel.password}" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/user_edit"
+                        android:hint="请再次输入密码"
+                        android:paddingVertical="15dp"
+                        android:paddingStart="30dp"
+                        android:text="@={viewModel.passwordagain}" />
+
+                    <EditText
+                        android:id="@+id/sex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/user_edit"
+                        android:focusable="false"
+                        android:hint="请选择性别"
+                        android:paddingVertical="15dp"
+                        android:paddingStart="30dp"
+                        android:text="@={viewModel.sex}"
+                        binding:onClickCommand="@{viewModel.chooseSexOnClickCommand}" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/user_edit"
+                        android:hint="请输入年龄"
+                        android:inputType="number"
+                        android:paddingVertical="15dp"
+                        android:paddingStart="30dp"
+                        android:text="@={viewModel.age}"
+                        tools:ignore="ExtraText" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/user_edit"
+                        android:hint="请输入身高（单位：米）"
+                        android:inputType="numberDecimal"
+                        android:paddingVertical="15dp"
+                        android:paddingStart="30dp"
+                        android:text="@={viewModel.height}" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/user_edit"
+                        android:hint="请输入体重（单位：米）"
+                        android:inputType="number"
+                        android:paddingVertical="15dp"
+                        android:paddingStart="30dp"
+                        android:text="@={viewModel.weight}" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorPrimary"
+                        android:text="注册"
+                        android:paddingVertical="10dp"
+                        onClickCommand="@{viewModel.registerOnClickCommand}"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
