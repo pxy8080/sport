@@ -117,7 +117,7 @@ public class NetWorkViewModel extends BaseViewModel<DemoRepository> {
                     public void onNext(BaseResponse<DemoEntity> response) {
                         //清除列表
                         observableList.clear();
-                        Log.i("TAG", "onNext: 获取到的返回值"+response.toString());
+                        Log.i("TAG", "onNext: 获取到的返回值" + response.toString());
                         //请求成功
                         if (response.getCode() == 1) {
                             for (DemoEntity.ItemsEntity entity : response.getResult().getItems()) {

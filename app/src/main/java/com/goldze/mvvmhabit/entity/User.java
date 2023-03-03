@@ -1,6 +1,5 @@
 package com.goldze.mvvmhabit.entity;
 
-
 public class User {
     private String id;
     private String name;
@@ -9,6 +8,11 @@ public class User {
     private int age;
     private double height;
     private int weight;
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
 
     public User(String name, String password, int sex, int age, double height, int weight) {
         this.name = name;

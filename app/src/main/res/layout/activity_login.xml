@@ -129,9 +129,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="8dp"
                     android:text="注册"
-                    binding:onClickCommand="@{viewModel.registerOnClickCommand}"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    binding:onClickCommand="@{viewModel.registerOnClickCommand}" />
             </RelativeLayout>
 
             <LinearLayout

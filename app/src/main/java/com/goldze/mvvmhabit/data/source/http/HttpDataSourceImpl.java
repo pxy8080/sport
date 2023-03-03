@@ -8,6 +8,7 @@ import com.goldze.mvvmhabit.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -41,14 +42,16 @@ public class HttpDataSourceImpl implements HttpDataSource {
         this.apiService = apiService;
     }
 
-//    @Override
+    //    @Override
 //    public Observable<Object> login() {
 //        return Observable.just(new Object()).delay(3, TimeUnit.SECONDS); //延迟3秒
 //    }
     @Override
     public Observable<BaseResponse<User>> login(String name, String password) {
         return apiService.login(name, password);
-    }@Override
+    }
+
+    @Override
     public Observable<BaseResponse<String>> test() {
         return apiService.test();
     }
@@ -81,5 +84,15 @@ public class HttpDataSourceImpl implements HttpDataSource {
     @Override
     public Observable<BaseResponse<DemoEntity>> demoPost(String catalog) {
         return apiService.demoPost(catalog);
+    }
+
+    @Override
+    public Observable<BaseResponse<Integer>> register(User user) {
+        return apiService.registerUser(user);
+    }
+
+    @Override
+    public Observable<BaseResponse<List<String>>> getVideo() {
+        return apiService.getVideo();
     }
 }

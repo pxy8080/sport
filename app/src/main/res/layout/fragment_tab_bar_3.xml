@@ -1,27 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <import type="me.goldze.mvvmhabit.base.BaseViewModel" />
 
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
         <variable
             name="viewModel"
-            type="BaseViewModel" />
+            type="com.goldze.mvvmhabit.ui.tab_bar.fragment.TabBar3FragmentViewModel" />
 
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom|left"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TabBar_3" />
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="健身视频推荐"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:items="@{viewModel.observableList}"
+            binding:layoutManager="@{LayoutManagers.linear()}"
+            binding:lineManager="@{LineManagers.horizontal()}" />
 
     </LinearLayout>
 </layout>

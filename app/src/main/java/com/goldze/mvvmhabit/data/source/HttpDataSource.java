@@ -4,6 +4,9 @@ import com.goldze.mvvmhabit.entity.DemoEntity;
 import com.goldze.mvvmhabit.entity.Result;
 import com.goldze.mvvmhabit.entity.User;
 
+import java.util.List;
+import java.util.Map;
+
 import io.reactivex.Observable;
 import me.goldze.mvvmhabit.http.BaseResponse;
 
@@ -22,5 +25,7 @@ public interface HttpDataSource {
 
     Observable<BaseResponse<DemoEntity>> demoPost(String catalog);
 
+    Observable<BaseResponse<Integer>> register(User user);
 
+    Observable<BaseResponse<List<String>>> getVideo();
 }

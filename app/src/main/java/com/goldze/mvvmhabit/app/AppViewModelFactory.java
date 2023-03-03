@@ -6,6 +6,9 @@ import android.app.Application;
 import com.goldze.mvvmhabit.data.DemoRepository;
 import com.goldze.mvvmhabit.ui.login.LoginViewModel;
 import com.goldze.mvvmhabit.ui.network.NetWorkViewModel;
+import com.goldze.mvvmhabit.ui.register.RegisterViewModel;
+import com.goldze.mvvmhabit.ui.tab_bar.fragment.TabBar3FragmentViewModel;
+import com.goldze.mvvmhabit.ui.tab_bar.fragment.TabBar4FragmentViewModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -49,6 +52,12 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new NetWorkViewModel(mApplication, mRepository);
         } else if (modelClass.isAssignableFrom(LoginViewModel.class)) {
             return (T) new LoginViewModel(mApplication, mRepository);
+        } else if (modelClass.isAssignableFrom(RegisterViewModel.class)) {
+            return (T) new RegisterViewModel(mApplication, mRepository);
+        } else if (modelClass.isAssignableFrom(TabBar3FragmentViewModel.class)) {
+            return (T) new TabBar3FragmentViewModel(mApplication, mRepository);
+        } else if (modelClass.isAssignableFrom(TabBar4FragmentViewModel.class)) {
+            return (T) new TabBar4FragmentViewModel(mApplication, mRepository);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }
